@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	int16_t* dataT;
+	int16_t dataT;
 	short* dataA = new short[3];
 	short* dataG = new short[3];
 	short* dataM = new short[3];
@@ -23,7 +23,7 @@ int main()
 	while(1)
 	{
 		dataT = 0;
-		mpu9250.readTempRawData(dataT);
+		mpu9250.readTempRawData(&dataT);
 
 		for (int i=0; i<3; i++){ dataA[i] = 0; }
 		mpu9250.readAccelroRawData(dataA);
