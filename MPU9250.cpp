@@ -1,3 +1,5 @@
+#include "MPU9250.h"
+
 MPU9250::MPU9250()
 {
 	 fdAK8963 = wiringPiI2CSetup(AK8963_ADDRESS );
