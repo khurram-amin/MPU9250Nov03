@@ -23,7 +23,7 @@ int main()
 	while(1)
 	{
 		dataT = 0;
-		mpu9250.readTempRawData(dataT);
+		//mpu9250.readTempRawData(dataT);
 
 		for (int i=0; i<3; i++){ dataA[i] = 0; }
 		mpu9250.readAccelroRawData(dataA);
