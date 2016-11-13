@@ -47,7 +47,7 @@ int main()
 		cout<< "MagntY = " << 1.0f*dataM[1]*mpu9250.getMagnetoResolution() << endl;
 		cout<< "MagntZ = " << 1.0f*dataM[2]*mpu9250.getMagnetoResolution() << endl;
 		cout<<endl<<endl<<endl;
-		delay(10);
+		delay(100);
 	}
 	return 1;
 }
