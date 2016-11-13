@@ -13,6 +13,7 @@ int main()
 	float* dataMB = new float[3];
 
 	MPU9250 mpu9250;
+	cout << "here" <<endl;
 	mpu9250.initMPU9250();
 	delay(10);
 	mpu9250.initAK8963(dataMB);
