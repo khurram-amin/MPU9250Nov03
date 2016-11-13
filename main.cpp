@@ -48,4 +48,5 @@ int main()
 		cout<<endl<<endl<<endl;
 		delay(10);
 	}
+	return 1;
 }
