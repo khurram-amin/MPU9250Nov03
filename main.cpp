@@ -1,5 +1,6 @@
 #include "MPU9250.h"
 #include <iostream>
+#include <cstdio>
 
 int main()
 {
@@ -31,7 +32,7 @@ int main()
 		mpu9250.readMagnetoRawData(dataM);
 
 
-		sprintf("Temp = %d\nAccelX = %d\nAccelY = %d\nAccelZ = %d\nGyroX = %d\nGyroY = %d\nGyroZ = %d\nMagntX = %d\nMagntY = %d\nMagntZ = %d\n\n\n", *dataT, *dataA[0]*mpu9250.getAccelroResolution, *dataA[1]*mpu9250.getAccelroResolution, *dataA[2]*mpu9250.getAccelroResolution, *dataG[0]*mpu9250.getGyroResolution, *dataG[1]*mpu9250.getGyroResolution, *dataG[2]*mpu9250.getGyroResolution, *dataM[0]*mpu9250.getMagnetoResolution, *dataM[1]*mpu9250.getMagnetoResolution, *dataM[2]*mpu9250.getMagnetoResolution);
+		sprintf("Temp = %d\nAccelX = %d\nAccelY = %d\nAccelZ = %d\nGyroX = %d\nGyroY = %d\nGyroZ = %d\nMagntX = %d\nMagntY = %d\nMagntZ = %d\n\n\n", 1.0f*dataT, 1.0f*dataA[0]*mpu9250.getAccelroResolution, 1.0f*dataA[1]*mpu9250.getAccelroResolution, 1.0f*dataA[2]*mpu9250.getAccelroResolution, 1.0f*dataG[0]*mpu9250.getGyroResolution, 1.0f*dataG[1]*mpu9250.getGyroResolution, 1.0f*dataG[2]*mpu9250.getGyroResolution, 1.0f*dataM[0]*mpu9250.getMagnetoResolution, 1.0f*dataM[1]*mpu9250.getMagnetoResolution, 1.0f*dataM[2]*mpu9250.getMagnetoResolution);
 
 		delay(10);
 	}
