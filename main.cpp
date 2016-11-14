@@ -1,6 +1,7 @@
 #include "MPU9250.h"
 #include <iostream>
 #include <cstdio>
+#include <ctime>
 
 using namespace std;
 
@@ -22,7 +23,11 @@ int main()
 	mpu9250.initAK8963(dataMB);
 	delay(10);
 	
-	while(1){
+	time_t before = time(nullptr);
+	time_t after = time(nullptr);
+	int counter = 0;
+	
+	while(after-before < 10){
 		if( digitalRead(0) )
 		{
 			dataT = 0;
@@ -52,6 +57,9 @@ int main()
 			cout<<endl<<endl<<endl;
 			
 			mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
+			counter++;
 		}
+	after = time(nullptr);
 	}
+	cout << "Number of sample collected in " << after - before << " seconds are " << counter << endl;
 }
