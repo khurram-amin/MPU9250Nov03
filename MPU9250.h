@@ -65,6 +65,9 @@ class MPU9250{
 		// IMU Self-testing
 		void MPU9250SelfTest(float * destination);
 
+		// IMU Self-Calibration
+		void calibrateMPU9250(float * gyroBias, float * accelBias);
+
 		// Register read and write over I2C routines
 		char readByte(uint8_t address, uint8_t subAddress);
 		void readBytes(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t* destination);
