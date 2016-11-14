@@ -134,8 +134,18 @@ void MPU9250::initMPU9250()
 	
 	// Configure Gyro and Accelerometer
 	// Disable FSYNC and set accelerometer and gyro bandwidth to 44 and 42 Hz, respectively; 
-	// DLPF_CFG = bits 2:0 = 010; this sets the sample rate at 1 kHz for both
-	// Maximum delay is 4.9 ms which is just over a 200 Hz maximum rate
+	
+	// CONFIG = 0x00
+	// DLPF_CFG = bits 2:0 = 000; this sets the sample rate at 8 kHz for both
+	// Maximum delay is 0.97 ms which is just over a 1030 Hz maximum rate
+	
+	// CONFIG = 0x07
+	// DLPF_CFG = bits 2:0 = 111; this sets the sample rate at 8 kHz for both
+	// Maximum delay is 0.17 ms which is just over a 5882 Hz maximum rate
+
+	// CONFIG = 0x03
+	// DLPF_CFG = bits 2:0 = 011; this sets the sample rate at 1 kHz for both
+	// Maximum delay is 5.9 ms which is just over a 169 Hz maximum rate
 	writeByte(MPU9250_ADDRESS, CONFIG, 0x03);
 	
 	// Set sample rate = gyroscope output rate/(1 + SMPLRT_DIV)
@@ -144,7 +154,7 @@ void MPU9250::initMPU9250()
 
 	// Set gyroscope full scale range
 	// Range selects FS_SEL and AFS_SEL are 0 - 3, so 2-bit values are left-shifted into positions 4:3
-	uint8_t c = readByte(MPU9250_ADDRESS, GYRO_CONFIG);
+	uint8_t c = readByte(MPU9250_ADDRESS, GYRO_CONFIG); // Read GYRO_CONFIG register
 	writeByte(MPU9250_ADDRESS, GYRO_CONFIG, c & ~0xE0); // Clear self-test bits [7:5] 
 	writeByte(MPU9250_ADDRESS, GYRO_CONFIG, c & ~0x18); // Clear AFS bits [4:3]
 	writeByte(MPU9250_ADDRESS, GYRO_CONFIG, c | gyroSensitivity << 3); // Set full scale range for the gyro
@@ -161,9 +171,9 @@ void MPU9250::initMPU9250()
 	c = readByte(MPU9250_ADDRESS, ACCEL_CONFIG2);
 	writeByte(MPU9250_ADDRESS, ACCEL_CONFIG2, c & ~0x0F); // Clear accel_fchoice_b (bit 3) and A_DLPFG (bits [2:0])  
 	writeByte(MPU9250_ADDRESS, ACCEL_CONFIG2, c | 0x03); // Set accelerometer rate to 1 kHz and bandwidth to 41 Hz
-
 	// The accelerometer, gyro, and thermometer are set to 1 kHz sample rates, 
 	// but all these rates are further reduced by a factor of 5 to 200 Hz because of the SMPLRT_DIV setting
+	
 	// Configure Interrupts and Bypass Enable
 	// Set interrupt pin active high, push-pull, and clear on read of INT_STATUS, enable I2C_BYPASS_EN so additional chips 
 	// can join the I2C bus and all can be controlled by the Arduino as master

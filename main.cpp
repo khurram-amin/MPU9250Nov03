@@ -12,6 +12,9 @@ int main()
 	short* dataM = new short[3];
 	float* dataMB = new float[3];
 
+	wiringPiSetup () ;
+	pinMode (0, INPUT) ;
+
 	MPU9250 mpu9250;
 	cout << "here" <<endl;
 	mpu9250.initMPU9250();
@@ -20,7 +23,7 @@ int main()
 	delay(10);
 	
 
-	while(1)
+	while( digitalRead(0) )
 	{
 		dataT = 0;
 		mpu9250.readTempRawData(&dataT);
@@ -47,7 +50,8 @@ int main()
 		cout<< "MagntY = " << 1.0f*dataM[1]*mpu9250.getMagnetoResolution() << endl;
 		cout<< "MagntZ = " << 1.0f*dataM[2]*mpu9250.getMagnetoResolution() << endl;
 		cout<<endl<<endl<<endl;
-		delay(100);
+		
+		mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
 	}
 	return 1;
 }
