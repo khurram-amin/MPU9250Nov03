@@ -28,6 +28,7 @@ int main()
 	int counter = 0;
 	
 	while(after-before < 10){
+		cout << digitalRead(0) << endl;
 		if( digitalRead(0) )
 		{
 			dataT = 0;
