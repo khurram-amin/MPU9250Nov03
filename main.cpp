@@ -21,14 +21,14 @@ int main()
 
 	MPU9250 mpu9250;
 
-	mpu9250.calibrateMPU9250(gyroBias, accelBias);
-	cout<< "Self Calibration results " << endl;
-	cout << "AccelX = " << 1.0f*accelBias[0] << endl;
-	cout << "AccelY = " << 1.0f*accelBias[1] << endl;
-	cout << "AccelZ = " << 1.0f*accelBias[2] << endl;
-	cout << "GyroX = " << 1.0f*gyroBias[0] << endl;
-	cout << "GyroY = " << 1.0f*gyroBias[1] << endl;
-	cout << "GyroZ = " << 1.0f*gyroBias[2] << endl;
+	// mpu9250.calibrateMPU9250(gyroBias, accelBias);
+	// cout<< "Self Calibration results " << endl;
+	// cout << "AccelX = " << 1.0f*accelBias[0] << endl;
+	// cout << "AccelY = " << 1.0f*accelBias[1] << endl;
+	// cout << "AccelZ = " << 1.0f*accelBias[2] << endl;
+	// cout << "GyroX = " << 1.0f*gyroBias[0] << endl;
+	// cout << "GyroY = " << 1.0f*gyroBias[1] << endl;
+	// cout << "GyroZ = " << 1.0f*gyroBias[2] << endl;
 
 	for (int i=0; i<3; i++){ selftest_destination[i] = 0; }
 	mpu9250.MPU9250SelfTest(selftest_destination);
