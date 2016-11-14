@@ -1,4 +1,5 @@
 #include "MPU9250.h"
+#include <cmath>
 
 MPU9250::MPU9250()
 {
