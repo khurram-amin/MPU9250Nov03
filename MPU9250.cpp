@@ -131,7 +131,10 @@ void MPU9250::initMPU9250()
 	// get stable time source
 	writeByte(MPU9250_ADDRESS, PWR_MGMT_1, 0x01);  // Set clock source to be PLL with x-axis gyroscope reference, bits 2:0 = 001
 	
+	//Disable Gyro for update rate testing
+	writeByte(MPU9250_ADDRESS, PWR_MGMT_2, 0x07);  // Set clock source to be PLL with x-axis gyroscope reference, bits 2:0 = 001
 	
+
 	// Configure Gyro and Accelerometer
 	// Disable FSYNC and set accelerometer and gyro bandwidth to 44 and 42 Hz, respectively; 
 	
