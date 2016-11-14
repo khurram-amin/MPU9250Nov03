@@ -23,7 +23,7 @@ int main()
 	delay(10);
 	
 	while(1){
-		if( digitalRead(0) )
+		if( 1 ) //digitalRead(0) )
 		{
 			dataT = 0;
 			mpu9250.readTempRawData(&dataT);
