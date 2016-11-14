@@ -23,8 +23,8 @@ int main()
 	mpu9250.initAK8963(dataMB);
 	delay(10);
 	
-	time_t before = time(nullptr);
-	time_t after = time(nullptr);
+	time_t before = time(NULL);
+	time_t after = time(NULL);
 	int counter = 0;
 	
 	while(after-before < 10){
