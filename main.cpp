@@ -59,7 +59,7 @@ int main()
 			mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
 			counter++;
 		}
-	after = time(nullptr);
+	after = time(NULL);
 	}
 	cout << "Number of sample collected in " << after - before << " seconds are " << counter << endl;
 }
