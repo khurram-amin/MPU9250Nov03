@@ -62,6 +62,9 @@ class MPU9250{
 		void initMPU9250();
 		void initAK8963(float* destination);
 
+		// IMU Self-testing
+		void MPU9250SelfTest(float * destination);
+
 		// Register read and write over I2C routines
 		char readByte(uint8_t address, uint8_t subAddress);
 		void readBytes(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t* destination);

@@ -12,11 +12,25 @@ int main()
 	short* dataG = new short[3];
 	short* dataM = new short[3];
 	float* dataMB = new float[3];
+	float* selftest_destination = new float[6];
 
 	wiringPiSetup () ;
 	pinMode (0, INPUT) ;
 
 	MPU9250 mpu9250;
+
+
+	for (int i=0; i<3; i++){ selftest_destination[i] = 0; }
+	mpu9250.MPU9250SelfTest(selftest_destination);
+	cout<< "Self testing results " << endl;
+	cout << "AccelX = " << 1.0f*selftest_destination[0]*100 << endl;
+	cout << "AccelY = " << 1.0f*selftest_destination[1]*100 << endl;
+	cout << "AccelZ = " << 1.0f*selftest_destination[2]*100 << endl;
+	cout << "GyroX = " << 1.0f*selftest_destination[3]*100 << endl;
+	cout << "GyroY = " << 1.0f*selftest_destination[4]*100 << endl;
+	cout << "GyroZ = " << 1.0f*selftest_destination[5]*100 << endl;
+
+
 	mpu9250.initMPU9250();
 	delay(10);
 	mpu9250.initAK8963(dataMB);
