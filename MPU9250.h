@@ -22,6 +22,7 @@ class MPU9250{
 	    uint8_t acceleroSensitivity, gyroSensitivity, magnetoSensitivity;
 		float magnetoResolution, accelroResolution, gyroResolution, tempResolution;
 		uint8_t magnetoMode;
+		float magClibration = new magCalibration[3];
 
 		// Variables to store file handlers of open I2C device 
 		int fdMPU9250, fdAK8963;
@@ -58,6 +59,13 @@ class MPU9250{
 			return tempResolution;
 		}
 
+		// set magCalibration variable
+		void setMagClibration(float* source){
+			magCalibration[0] = *source[0];
+			magCalibration[1] = *source[1];
+			magCalibration[2] = *source[2];
+		}
+
 		// Read raw sensor data
 		void readMagnetoRawData(int16_t* destination);
 		void readAccelroRawData(int16_t* destination);
@@ -73,6 +81,7 @@ class MPU9250{
 
 		// IMU Self-Calibration
 		void calibrateMPU9250(float * gyroBias, float * accelBias);
+		void calibrateAK8963Mag(float * magBias, float * magScale);
 
 		// Register read and write over I2C routines
 		char readByte(uint8_t address, uint8_t subAddress);
