@@ -164,7 +164,7 @@ void MPU9250::initMPU9250()
 	writeByte(MPU9250_ADDRESS, CONFIG, 0x00);
 	
 	// Set sample rate = gyroscope output rate/(1 + SMPLRT_DIV)
-	writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x00);  // Use a 200 Hz rate; the same rate set in CONFIG above
+	writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x04);  // Use a 200 Hz rate; the same rate set in CONFIG above
 	
 
 	// Set gyroscope full scale range
@@ -185,7 +185,7 @@ void MPU9250::initMPU9250()
 	// accel_fchoice_b bit [3]; in this case the bandwidth is 1.13 kHz
 	c = readByte(MPU9250_ADDRESS, ACCEL_CONFIG2);
 	writeByte(MPU9250_ADDRESS, ACCEL_CONFIG2, c & ~0x0F); // Clear accel_fchoice_b (bit 3) and A_DLPFG (bits [2:0])  
-	writeByte(MPU9250_ADDRESS, ACCEL_CONFIG2, c | 0x03); // Set accelerometer rate to 1 kHz and bandwidth to 41 Hz
+	writeByte(MPU9250_ADDRESS, ACCEL_CONFIG2, c | 0x01); // Set accelerometer rate to 1 kHz and bandwidth to 41 Hz
 	// The accelerometer, gyro, and thermometer are set to 1 kHz sample rates, 
 	// but all these rates are further reduced by a factor of 5 to 200 Hz because of the SMPLRT_DIV setting
 	
