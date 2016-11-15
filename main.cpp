@@ -82,7 +82,7 @@ int main()
 			mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
 			after = time(NULL);
 			counter++;
-			cout << "Current sample rate is " << counter/(after-before) << "Hz" <<endl;
+			//cout << "Current sample rate is " << counter/(after-before) << "Hz" <<endl;
 			cout<<endl<<endl<<endl;
 		}
 		cout<<"here"<<endl;
