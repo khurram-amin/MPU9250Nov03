@@ -94,6 +94,11 @@ int main()
 			cout << "Current sample rate is " << (double) freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
 		}
+		if (afterDouble-beforeDouble > 10)
+		{
+			gettimeofday(&before,NULL);
+			counter = 0;
+		}
 		//delay(1);
 	}
 	return 1;
