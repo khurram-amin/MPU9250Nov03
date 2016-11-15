@@ -164,7 +164,7 @@ void MPU9250::initMPU9250()
 	writeByte(MPU9250_ADDRESS, CONFIG, 0x00);
 	
 	// Set sample rate = gyroscope output rate/(1 + SMPLRT_DIV)
-	writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x04);  // Use a 200 Hz rate; the same rate set in CONFIG above
+	writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x00);  // Use a 200 Hz rate; the same rate set in CONFIG above
 	
 
 	// Set gyroscope full scale range
