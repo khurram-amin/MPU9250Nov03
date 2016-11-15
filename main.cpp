@@ -49,6 +49,7 @@ int main()
 	time_t before = time(NULL);
 	time_t after;
 	int counter = 0;
+	float freq = 0;
 	
 	while(1)
 	{
@@ -82,10 +83,10 @@ int main()
 			mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
 			after = time(NULL);
 			counter++;
-			//cout << "Current sample rate is " << counter/(after-before) << "Hz" <<endl;
+			freq = counter/(after-before);
+			cout << "Current sample rate is " << 1.0f*freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
 		}
-		cout<<"here"<<endl;
 		delay(1);
 	}
 	return 1;
