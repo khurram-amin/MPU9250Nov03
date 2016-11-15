@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdio>
 #include <ctime>
+#include <sys/time>
 
 using namespace std;
 
@@ -46,8 +47,9 @@ int main()
 	mpu9250.initAK8963(dataMB);
 	delay(10);
 	
-	time_t before = time(NULL);
-	time_t after;
+	struct timeval before;
+	gettimeofday(&before,NULL);
+	struct timeval after;
 	int counter = 0;
 	float freq = 0;
 	
@@ -81,9 +83,9 @@ int main()
 			cout<< "MagntZ = " << 1.0f*dataM[2]*mpu9250.getMagnetoResolution() << endl;
 			
 			mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
-			after = time(NULL);
+			gettimeofday(&after,NULL);
 			counter++;
-			freq = counter/(after-before);
+			freq = counter/( (1000000*after.tv_sec+after.tv_usec) - (1000000*before.tv_sec+before.tv_usec) );
 			cout << "Current sample rate is " << 1.0f*freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
 		}
