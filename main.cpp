@@ -88,7 +88,7 @@ int main()
 			gettimeofday(&after,NULL);
 			counter++;
 			afterLong = (unsigned long) (1000*after.tv_sec+after.tv_usec/1000);
-			freq = ((unsigned long)counter/(unsigned long)(afterLong-beforeLong) )*1000;
+			freq = (float) ((unsigned long)counter/(unsigned long)(afterLong-beforeLong) )*1000;
 			cout << "Current sample rate is " << (float) freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
 		}
