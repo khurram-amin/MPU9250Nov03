@@ -52,7 +52,7 @@ int main()
 	unsigned long beforeLong = (unsigned long) (1000000*before.tv_sec+before.tv_usec);
 	struct timeval after;
 	unsigned long afterLong;
-	int counter = 0;
+	unsigned long counter = 0;
 	float freq = 0;
 	
 	while(1)
@@ -88,7 +88,7 @@ int main()
 			gettimeofday(&after,NULL);
 			counter++;
 			afterLong = (unsigned long) (1000000*after.tv_sec+after.tv_usec);
-			freq = (float)( (float)counter/ (unsigned long)(afterLong-beforeLong) );
+			freq = (float)( (unsigned long)counter/(unsigned long)(afterLong-beforeLong) );
 			cout << "Current sample rate is " << (float) freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
 		}
