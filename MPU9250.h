@@ -20,7 +20,7 @@ class MPU9250{
 	    enum magnetoSensitivity { MFS_14BITS = 0, MFS_16BITS };
 
 	    uint8_t acceleroSensitivity, gyroSensitivity, magnetoSensitivity;
-		float magnetoResolution, accelroResolution, gyroResolution;
+		float magnetoResolution, accelroResolution, gyroResolution, tempResolution;
 		uint8_t magnetoMode;
 
 		// Variables to store file handlers of open I2C device 
@@ -37,6 +37,8 @@ class MPU9250{
 		void setAccelroResolution();
 		// Gyroscope resolution. Will set gyroResolution variable. (degrees per second)
 		void setGyroResolution();
+		// Set Temperature sensor resolution
+		void setTempResolution();
 
 		// Get current sensor resolution.
 		// Get Magnetometer resolution (milli-Gauss per tick)
@@ -50,6 +52,10 @@ class MPU9250{
 		// Get Gyroscope resolution (Degrees per tick)
 		float getGyroResolution(){
 			return gyroResolution;
+		}
+		// Get Temperature Sensor resolution
+		float getTempResolution(){
+			return tempResolution;
 		}
 
 		// Read raw sensor data

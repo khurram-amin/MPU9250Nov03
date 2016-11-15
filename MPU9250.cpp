@@ -71,6 +71,12 @@ void MPU9250::setGyroResolution()
 	}
 }
 
+// Temperature sensor has fixed sensitivity
+void MPU9250::setTempResolution()
+{
+	tempResolution = 333.87;
+}
+
 // Read three 16-bit registers corressponding to Raw Magnetometer data
 void MPU9250::readMagnetoRawData(int16_t* destination)
 {
