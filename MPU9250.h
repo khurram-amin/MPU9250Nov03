@@ -22,7 +22,7 @@ class MPU9250{
 	    uint8_t acceleroSensitivity, gyroSensitivity, magnetoSensitivity;
 		float magnetoResolution, accelroResolution, gyroResolution, tempResolution;
 		uint8_t magnetoMode;
-		float magClibration = new magCalibration[3];
+		float magCalibration = new magCalibration[3];
 
 		// Variables to store file handlers of open I2C device 
 		int fdMPU9250, fdAK8963;
