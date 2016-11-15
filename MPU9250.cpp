@@ -8,11 +8,12 @@ MPU9250::MPU9250()
 	acceleroSensitivity = AFS_2G;
 	gyroSensitivity = GFS_250DPS;
 	magnetoSensitivity = MFS_16BITS;
+	magnetoMode = 0x02;
 	setMagnetoResolution();
 	setAccelroResolution();
 	setGyroResolution();
 	setTempResolution();
-	magnetoMode = 0x06;
+	
 }
 
 // Based on the current sensitivity configuration of magnetometer, this function will set the resolution per bit of magnetometer.
