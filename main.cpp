@@ -85,6 +85,7 @@ int main()
 			cout << "Current sample rate is " << counter/(after-before) << "Hz" <<endl;
 			cout<<endl<<endl<<endl;
 		}
+		cout<<"here"<<endl;
 	}
 	return 1;
 }
