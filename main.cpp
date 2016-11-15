@@ -89,7 +89,7 @@ int main()
 			counter++;
 			afterLong = (unsigned long) (1000000*after.tv_sec+after.tv_usec);
 			freq = (float)( counter/(unsigned long)( afterLong -  beforeLong ) );
-			cout << "Current sample rate is " << 1.0f*freq << " Hz" <<endl;
+			cout << "Current sample rate is " << (unsigned long)( afterLong -  beforeLong ) << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
 		}
 		delay(1);
