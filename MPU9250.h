@@ -3,6 +3,7 @@
 #include <wiringPiI2C.h>
 #include <wiringPi.h>
 #include "MPU9250RegMap.h"
+#include <cstdio>
 
 #define uint8_t unsigned char
 #define int8_t char
@@ -58,7 +59,6 @@ class MPU9250{
 		float getTempResolution(){
 			return tempResolution;
 		}
-
 		// set magCalibration variable
 		void setMagClibration(float* source){
 			magCalibration[0] = source[0];
