@@ -47,11 +47,10 @@ int main()
 	delay(10);
 	
 	time_t before = time(NULL);
-	time_t after = time(NULL);
+	time_t after;
 	int counter = 0;
 	
 	while(1){
-		after = time(NULL);
 		if( digitalRead(0) )
 		{
 			dataT = 0;
@@ -81,13 +80,9 @@ int main()
 			cout<<endl<<endl<<endl;
 			
 			mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
+			after = time(NULL);
 			counter++;
-		}
-		if (after-before==1)
-		{
-			cout << "Current sample rate is " << counter << "Hz" <<endl;
-			counter = 0;
-			before = time(NULL);
+			cout << "Current sample rate is " << counter/(after-before) << "Hz" <<endl;
 		}
 	}
 }
