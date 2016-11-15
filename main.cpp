@@ -16,8 +16,8 @@ int main()
 	float* selftest_destination = new float[6];
 	float* gyroBias = new float[3];
 	float* accelBias = new float[3];
-	float* magBias = new int16_t[3];
-	float* magScale = new int16_t[3];
+	float* magBias = new float[3];
+	float* magScale = new float[3];
 
 	wiringPiSetup () ;
 	pinMode (0, INPUT) ;

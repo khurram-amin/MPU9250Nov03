@@ -3,7 +3,7 @@
 #include <wiringPiI2C.h>
 #include <wiringPi.h>
 #include "MPU9250RegMap.h"
-#include <cstdio>
+#include <iostream>
 
 #define uint8_t unsigned char
 #define int8_t char
