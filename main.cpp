@@ -52,7 +52,7 @@ int main()
 	
 	while(1)
 	{
-		if( 1 )
+		if( digitalRead(0) )
 		{
 			dataT = 0;
 			mpu9250.readTempRawData(&dataT);
@@ -79,14 +79,14 @@ int main()
 			cout<< "MagntY = " << 1.0f*dataM[1]*mpu9250.getMagnetoResolution() << endl;
 			cout<< "MagntZ = " << 1.0f*dataM[2]*mpu9250.getMagnetoResolution() << endl;
 			
-			cout<<"here"<<endl;
 			mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
 			after = time(NULL);
 			counter++;
 			cout << "Current sample rate is " << counter/(after-before) << "Hz" <<endl;
 			cout<<endl<<endl<<endl;
 		}
-		
+		cout<<"here"<<endl;
+		delay(1);
 	}
 	return 1;
 }
