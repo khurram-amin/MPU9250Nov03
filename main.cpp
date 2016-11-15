@@ -85,7 +85,7 @@ int main()
 			mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
 			gettimeofday(&after,NULL);
 			counter++;
-			cout << "After time " << 1.0f (1000000*after.tv_sec+after.tv_usec) <<endl;
+			cout << "After time " << 1.0f*(1000000*after.tv_sec+after.tv_usec) <<endl;
 			freq = counter/( (1000000*after.tv_sec+after.tv_usec) - (1000000*before.tv_sec+before.tv_usec) );
 			cout << "Current sample rate is " << 1.0f*freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
