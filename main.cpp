@@ -49,7 +49,7 @@ int main()
 	
 	struct timeval before;
 	gettimeofday(&before,NULL);
-	unsigned long beforeLong = (unsigned long) (1000000*before.tv_sec+before.tv_usec);
+	unsigned long beforeLong = (unsigned long) (1000*before.tv_sec+before.tv_usec/1000);
 	struct timeval after;
 	unsigned long afterLong;
 	unsigned long counter = 0;
@@ -87,8 +87,8 @@ int main()
 			mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
 			gettimeofday(&after,NULL);
 			counter++;
-			afterLong = (unsigned long) (1000000*after.tv_sec+after.tv_usec);
-			freq = (float)( (unsigned long)counter/(unsigned long)(afterLong-beforeLong) );
+			afterLong = (unsigned long) (1000*after.tv_sec+after.tv_usec/1000);
+			freq = ((unsigned long)counter/(unsigned long)(afterLong-beforeLong) )*1000;
 			cout << "Current sample rate is " << (float) freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
 		}
