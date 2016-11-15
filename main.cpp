@@ -47,13 +47,13 @@ int main()
 	mpu9250.initAK8963(dataMB);
 	delay(10);
 	
-	struct timeval before;
+	struct timeval before, after;
 	gettimeofday(&before,NULL);
-	unsigned long beforeLong = (unsigned long) (1000*before.tv_sec+before.tv_usec/1000);
-	struct timeval after;
-	unsigned long afterLong;
-	unsigned long counter = 0;
-	float freq = 0;
+	double beforeDouble, afterDouble;
+	double counter = 0;
+	double freq = 0;
+
+	beforeDouble = (double) (before.tv_sec+before.tv_usec/1000000);
 	
 	while(1)
 	{
@@ -87,9 +87,9 @@ int main()
 			mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
 			gettimeofday(&after,NULL);
 			counter++;
-			afterLong = (unsigned long) (1000*after.tv_sec+after.tv_usec/1000);
-			freq = (float) ((unsigned long)counter/(unsigned long)(afterLong-beforeLong) )*1000;
-			cout << "Current sample rate is " << (float) freq << " Hz" <<endl;
+			afterDouble = (double) (after.tv_sec+after.tv_usec/1000000);
+			freq = (double) ( (double)counter/(double)(afterDouble-beforeDouble) );
+			cout << "Current sample rate is " << (double) freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
 		}
 		delay(1);
