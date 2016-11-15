@@ -50,7 +50,8 @@ int main()
 	time_t after = time(NULL);
 	int counter = 0;
 	
-	while(after-before < 10){
+	while(1){
+		after = time(NULL);
 		if( digitalRead(0) )
 		{
 			dataT = 0;
@@ -82,7 +83,11 @@ int main()
 			mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
 			counter++;
 		}
-	after = time(NULL);
+		if (after-before==1)
+		{
+			cout << "Current sample rate is " << counter << "Hz" <<endl;
+			counter = 0;
+			before = time(NULL);
+		}
 	}
-	cout << "Number of sample collected in " << after - before << " seconds are " << counter << endl;
 }
