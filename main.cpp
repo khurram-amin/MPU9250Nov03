@@ -76,16 +76,16 @@ int main()
 
 
 			// //sprintf("Temp = %d\nAccelX = %d\nAccelY = %d\nAccelZ = %d\nGyroX = %d\nGyroY = %d\nGyroZ = %d\nMagntX = %d\nMagntY = %d\nMagntZ = %d\n\n\n", 1.0f*dataT, 1.0f*dataA[0]*mpu9250.getAccelroResolution, 1.0f*dataA[1]*mpu9250.getAccelroResolution, 1.0f*dataA[2]*mpu9250.getAccelroResolution, 1.0f*dataG[0]*mpu9250.getGyroResolution, 1.0f*dataG[1]*mpu9250.getGyroResolution, 1.0f*dataG[2]*mpu9250.getGyroResolution, 1.0f*dataM[0]*mpu9250.getMagnetoResolution, 1.0f*dataM[1]*mpu9250.getMagnetoResolution, 1.0f*dataM[2]*mpu9250.getMagnetoResolution);
-			// cout<< "Temp = " << 1.0f*dataT/mpu9250.getTempResolution() + 21 << endl;
-			// cout<< "AccelX = " << 1.0f*dataA[0]*mpu9250.getAccelroResolution() << endl;
-			// cout<< "AccelY = " << 1.0f*dataA[1]*mpu9250.getAccelroResolution() << endl;
-			// cout<< "AccelZ = " << 1.0f*dataA[2]*mpu9250.getAccelroResolution() << endl;
-			// cout<< "GyroX = " << 1.0f*dataG[0]*mpu9250.getGyroResolution() << endl;
-			// cout<< "GyroY = " << 1.0f*dataG[1]*mpu9250.getGyroResolution() << endl;
-			// cout<< "GyroZ = " << 1.0f*dataG[2]*mpu9250.getGyroResolution() << endl;
-			// cout<< "MagntX = " << 1.0f*dataM[0]*mpu9250.getMagnetoResolution() << endl;
-			// cout<< "MagntY = " << 1.0f*dataM[1]*mpu9250.getMagnetoResolution() << endl;
-			// cout<< "MagntZ = " << 1.0f*dataM[2]*mpu9250.getMagnetoResolution() << endl;
+			cout<< "Temp = " << 1.0f*dataT/mpu9250.getTempResolution() + 21 << endl;
+			cout<< "AccelX = " << 1.0f*dataA[0]*mpu9250.getAccelroResolution() << endl;
+			cout<< "AccelY = " << 1.0f*dataA[1]*mpu9250.getAccelroResolution() << endl;
+			cout<< "AccelZ = " << 1.0f*dataA[2]*mpu9250.getAccelroResolution() << endl;
+			cout<< "GyroX = " << 1.0f*dataG[0]*mpu9250.getGyroResolution() << endl;
+			cout<< "GyroY = " << 1.0f*dataG[1]*mpu9250.getGyroResolution() << endl;
+			cout<< "GyroZ = " << 1.0f*dataG[2]*mpu9250.getGyroResolution() << endl;
+			cout<< "MagntX = " << 1.0f*dataM[0]*mpu9250.getMagnetoResolution() << endl;
+			cout<< "MagntY = " << 1.0f*dataM[1]*mpu9250.getMagnetoResolution() << endl;
+			cout<< "MagntZ = " << 1.0f*dataM[2]*mpu9250.getMagnetoResolution() << endl;
 			
 			mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
 			
