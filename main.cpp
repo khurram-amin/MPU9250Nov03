@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdio>
 #include <ctime>
-#include <sys/time>
+#include <sys/time.h>
 
 using namespace std;
 
