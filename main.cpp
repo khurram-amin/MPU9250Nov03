@@ -30,15 +30,15 @@ int main()
 	// cout << "GyroY = " << 1.0f*gyroBias[1] << endl;
 	// cout << "GyroZ = " << 1.0f*gyroBias[2] << endl;
 
-	for (int i=0; i<3; i++){ selftest_destination[i] = 0; }
-	mpu9250.MPU9250SelfTest(selftest_destination);
-	cout<< "Self testing results " << endl;
-	cout << "AccelX = " << 1.0f*selftest_destination[0] << endl;
-	cout << "AccelY = " << 1.0f*selftest_destination[1] << endl;
-	cout << "AccelZ = " << 1.0f*selftest_destination[2] << endl;
-	cout << "GyroX = " << 1.0f*selftest_destination[3] << endl;
-	cout << "GyroY = " << 1.0f*selftest_destination[4] << endl;
-	cout << "GyroZ = " << 1.0f*selftest_destination[5] << endl;
+	// for (int i=0; i<3; i++){ selftest_destination[i] = 0; }
+	// mpu9250.MPU9250SelfTest(selftest_destination);
+	// cout<< "Self testing results " << endl;
+	// cout << "AccelX = " << 1.0f*selftest_destination[0] << endl;
+	// cout << "AccelY = " << 1.0f*selftest_destination[1] << endl;
+	// cout << "AccelZ = " << 1.0f*selftest_destination[2] << endl;
+	// cout << "GyroX = " << 1.0f*selftest_destination[3] << endl;
+	// cout << "GyroY = " << 1.0f*selftest_destination[4] << endl;
+	// cout << "GyroZ = " << 1.0f*selftest_destination[5] << endl;
 
 
 	mpu9250.initMPU9250();
