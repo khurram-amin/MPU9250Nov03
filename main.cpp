@@ -59,6 +59,9 @@ int main()
 	{
 		if( digitalRead(0) )
 		{
+			gettimeofday(&after,NULL);
+			counter++;
+			
 			dataT = 0;
 			mpu9250.readTempRawData(&dataT);
 
@@ -85,14 +88,13 @@ int main()
 			cout<< "MagntZ = " << 1.0f*dataM[2]*mpu9250.getMagnetoResolution() << endl;
 			
 			mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
-			gettimeofday(&after,NULL);
-			counter++;
+			
 			afterDouble = (double) (after.tv_sec+after.tv_usec/1000000);
 			freq = (double) ( (double)counter/(double)(afterDouble-beforeDouble) );
 			cout << "Current sample rate is " << (double) freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
 		}
-		delay(1);
+		//delay(1);
 	}
 	return 1;
 }
