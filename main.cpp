@@ -97,6 +97,7 @@ int main()
 		if (afterDouble-beforeDouble > 10)
 		{
 			gettimeofday(&before,NULL);
+			beforeDouble = (double) (before.tv_sec+before.tv_usec/1000000);
 			counter = 0;
 		}
 		//delay(1);
