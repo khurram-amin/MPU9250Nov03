@@ -8,6 +8,10 @@ MPU9250::MPU9250()
 	acceleroSensitivity = AFS_2G;
 	gyroSensitivity = GFS_250DPS;
 	magnetoSensitivity = MFS_16BITS;
+	setMagnetoResolution();
+	setAccelroResolution();
+	setGyroResolution();
+	setTempResolution();
 	magnetoMode = 0x06;
 }
 
