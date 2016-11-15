@@ -92,7 +92,7 @@ int main()
 			cout << "Current sample rate is " << (double) freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
 		}
-		delay(1);
+		delay(50);
 	}
 	return 1;
 }
