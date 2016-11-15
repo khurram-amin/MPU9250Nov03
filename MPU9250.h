@@ -61,9 +61,9 @@ class MPU9250{
 
 		// set magCalibration variable
 		void setMagClibration(float* source){
-			magCalibration[0] = *source[0];
-			magCalibration[1] = *source[1];
-			magCalibration[2] = *source[2];
+			magCalibration[0] = source[0];
+			magCalibration[1] = source[1];
+			magCalibration[2] = source[2];
 		}
 
 		// Read raw sensor data
