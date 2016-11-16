@@ -78,6 +78,8 @@ int main()
 	gettimeofday(&qTime,NULL);
 	qTimeDouble = (double) ((double)1000*qTime.tv_sec+(double)qTime.tv_usec/1000);
 
+	double roll = 0, pitch = 0, yaw = 0;
+
 	while(1)
 	{
 		if( digitalRead(0) )
@@ -134,9 +136,9 @@ int main()
 			cout << "Q3: " << 1.0f*_quat[2] << endl;
 			cout << "Q4: " << 1.0f*_quat[3] << endl;
 
-			cout << "Roll: " << (double)_degs[0] << endl;
-			cout << "Pitch: " << (double)_degs[1] << endl;
-			cout << "Yaw: " << (double)_degs[2] << endl;
+			cout << "Roll: " << (double)(roll+(double)_degs[0]) << endl;
+			cout << "Pitch: " << (double)(pitch+(double)_degs[1]) << endl;
+			cout << "Yaw: " << (double)(yaw+(double)_degs[2]) << endl;
 
 			cout << "Current sample rate is " << (double) freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
