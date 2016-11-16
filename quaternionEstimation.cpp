@@ -10,7 +10,7 @@ qEstimator::qEstimator()
 
 	deltat = 0.0f;
 
-	q[4] = { 1.0f, 0.0f, 0.0f, 0.0f }; 
+	for (int i=0; i<4; i++){ q[i] = 0.0f; }
 }
 
 
