@@ -490,8 +490,8 @@ void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2)
 		readMagnetoRawData(mag_temp);  // Read the mag data   
 		for (int jj = 0; jj < 3; jj++)
 		{
-			if(mag_temp[jj] > mag_max[jj]) mag_max[jj] = mag_temp[jj];
-			if(mag_temp[jj] < mag_min[jj]) mag_min[jj] = mag_temp[jj];
+			if(mag_temp[jj] > (int)mag_max[jj]) mag_max[jj] = (int)mag_temp[jj];
+			if(mag_temp[jj] < (int)mag_min[jj]) mag_min[jj] = (int)mag_temp[jj];
 			if(isnan(mag_temp[jj])){
 				cout << "NAN" <<endl;
 			}
@@ -520,8 +520,8 @@ void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2)
 	dest2[1] = avg_rad/((float)mag_scale[1]);
 	dest2[2] = avg_rad/((float)mag_scale[2]);
 
-	cout << (short) mag_max[0] << endl;
-	cout << (short) mag_min[0] << endl;
+	cout << (int) mag_max[0] << endl;
+	cout << (int) mag_min[0] << endl;
 
 	if (isnan(mag_bias[0])) { cout << "MAG_BIAS[0] is NAN" << endl; }
 	if (isnan(mag_bias[1])) { cout << "MAG_BIAS[1] is NAN" << endl; }
