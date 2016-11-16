@@ -68,11 +68,14 @@ int main()
 	double counter = 0;
 	double freq = 0;
 
+
 	qEstimator toQuaternion;
 	toQuaternion.updateDeltaT((float)0);
 
 	beforeDouble = (double) (before.tv_sec+before.tv_usec/1000000);
-	qTimeDouble = (double) (1000000*qTime.tv_sec+qTime.tv_usec);
+
+	gettimeofday(&qTime,NULL);
+	qTimeDouble = (double) ((double)1000*qTime.tv_sec+(double)qTime.tv_usec/1000);
 
 	while(1)
 	{
