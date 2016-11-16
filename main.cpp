@@ -135,8 +135,8 @@ int main()
 			cout << "Q4: " << 1.0f*_quat[3] << endl;
 
 			cout << "Roll: " << (double)_degs[0] << endl;
-			cout << "Pitch: " << (double)*_degs[1] << endl;
-			cout << "Yaw: " << (double)*_degs[2] << endl;
+			cout << "Pitch: " << (double)_degs[1] << endl;
+			cout << "Yaw: " << (double)_degs[2] << endl;
 
 			cout << "Current sample rate is " << (double) freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
