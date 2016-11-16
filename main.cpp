@@ -136,9 +136,9 @@ int main()
 			cout << "Q2: " << 1.0f*_quat[1] << endl;
 			cout << "Q3: " << 1.0f*_quat[2] << endl;
 			cout << "Q4: " << 1.0f*_quat[3] << endl;
-			roll+=_degs[0];
-			pitch+=_degs[1];
-			yaw+=_degs[2];
+			roll  = _degs[0];
+			pitch = _degs[1];
+			yaw   = _degs[2] - 3.36;
 
 			cout << "deltaT: " << (float)qTimeDouble << endl;
 			cout << "Roll: " << (double)roll << endl;
