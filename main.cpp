@@ -140,6 +140,7 @@ int main()
 			pitch+=_degs[1];
 			yaw+=_degs[2];
 
+			cout << "deltaT: " << (float)qTimeDouble << endl;
 			cout << "Roll: " << (double)roll << endl;
 			cout << "Pitch: " << (double)pitch << endl;
 			cout << "Yaw: " << (double)yaw << endl;
