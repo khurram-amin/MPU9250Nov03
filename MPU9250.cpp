@@ -480,7 +480,7 @@ void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2)
 	std::cout << "Mag Calibration: Wave device in a figure eight until done!" << std::endl;
 	delay(4000);
 
-	sample_count = 2000;
+	sample_count = 1000;
 	for(ii = 0; ii < sample_count; ii++)
 	{
 		readMagnetoRawData(mag_temp);  // Read the mag data   
