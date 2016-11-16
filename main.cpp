@@ -34,7 +34,7 @@ int main()
 	delay(10);
 	mpu9250.setMagClibration(dataMB);
 
-	//mpu9250.calibrateMPU9250(gyroBias, accelBias);
+	mpu9250.calibrateMPU9250(gyroBias, accelBias);
 	//mpu9250.calibrateAK8963Mag(magBias, magScale);
 	magBias[0] = 0; magBias[1] = 0; magBias[2] = 0;
 	magScale[0] = 1; magScale[1] = 1; magScale[2] = 1;
@@ -130,7 +130,7 @@ int main()
 
 			
 			toQuaternion.getQuaternion(_quat);
-			toQuaternion.toEulerianAngle(_degs);
+			toQuaternion.toEulerAngle(_degs);
 			// cout << "delata " << (float)(qTimeDouble/1000) << endl;
 			// cout << "Q1: " << 1.0f*_quat[0] << endl;
 			// cout << "Q2: " << 1.0f*_quat[1] << endl;
