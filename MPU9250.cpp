@@ -351,8 +351,8 @@ void MPU9250::calibrateMPU9250(float * gyroBias, float * accelBias)
 	writeByte(MPU9250_ADDRESS, GYRO_CONFIG, 0x00);  // Set gyro full-scale to 250 degrees per second, maximum sensitivity
 	writeByte(MPU9250_ADDRESS, ACCEL_CONFIG, 0x00); // Set accelerometer full-scale to 2 g, maximum sensitivity
 
-	uint16_t  gyrosensitivity  = gyroResolution;//131;   // = 131 LSB/degrees/sec
-	uint16_t  accelsensitivity = accelroResolution;//16384;  // = 16384 LSB/g
+	uint16_t  gyrosensitivity  = 131;   // = 131 LSB/degrees/sec
+	uint16_t  accelsensitivity = 16384;  // = 16384 LSB/g
 
 	// Configure FIFO to capture accelerometer and gyro data for bias calculation
 	writeByte(MPU9250_ADDRESS, USER_CTRL, 0x40);   // Enable FIFO  
