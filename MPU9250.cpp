@@ -516,13 +516,16 @@ void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2)
 	dest2[1] = avg_rad/((float)mag_scale[1]);
 	dest2[2] = avg_rad/((float)mag_scale[2]);
 
+	cout << (float) mag_max[0] << endl;
+	cout << (float) mag_min[0] << endl;
+
 	if (isnan(mag_bias[0])) { cout << "MAG_BIAS[0] is NAN" << endl; }
 	if (isnan(mag_bias[1])) { cout << "MAG_BIAS[1] is NAN" << endl; }
 	if (isnan(mag_bias[2])) { cout << "MAG_BIAS[2] is NAN" << endl; }
 	if (isnan(mag_scale[0])) { cout << "MAG_SCALE[0] is NAN" << endl; }
 	if (isnan(mag_scale[1])) { cout << "MAG_SCALE[1] is NAN" << endl; }
 	if (isnan(mag_scale[2])) { cout << "MAG_SCALE[2] is NAN" << endl; }
-	
+
 	std::cout << "Mag Calibration done!" << std::endl;
  }
 
