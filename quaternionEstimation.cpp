@@ -45,11 +45,6 @@ void qEstimator::MadgwickUpdate(float ax, float ay, float az, float gx, float gy
 	float s1, s2, s3, s4;
 	float qDot1, qDot2, qDot3, qDot4;
 
-	cout << "q1 " << (float) q1 << endl;
-	cout << "q2 " << (float) q2 << endl;
-	cout << "q3 " << (float) q3 << endl;
-	cout << "q4 " << (float) q4 << endl;
-
 	// Auxiliary variables to avoid repeated arithmetic
 	float _2q1mx;
 	float _2q1my;
@@ -109,11 +104,7 @@ void qEstimator::MadgwickUpdate(float ax, float ay, float az, float gx, float gy
 	s2 = _2q4 * (2.0f * q2q4 - _2q1q3 - ax) + _2q1 * (2.0f * q1q2 + _2q3q4 - ay) - 4.0f * q2 * (1.0f - 2.0f * q2q2 - 2.0f * q3q3 - az) + _2bz * q4 * (_2bx * (0.5f - q3q3 - q4q4) + _2bz * (q2q4 - q1q3) - mx) + (_2bx * q3 + _2bz * q1) * (_2bx * (q2q3 - q1q4) + _2bz * (q1q2 + q3q4) - my) + (_2bx * q4 - _4bz * q2) * (_2bx * (q1q3 + q2q4) + _2bz * (0.5f - q2q2 - q3q3) - mz);
 	s3 = -_2q1 * (2.0f * q2q4 - _2q1q3 - ax) + _2q4 * (2.0f * q1q2 + _2q3q4 - ay) - 4.0f * q3 * (1.0f - 2.0f * q2q2 - 2.0f * q3q3 - az) + (-_4bx * q3 - _2bz * q1) * (_2bx * (0.5f - q3q3 - q4q4) + _2bz * (q2q4 - q1q3) - mx) + (_2bx * q2 + _2bz * q4) * (_2bx * (q2q3 - q1q4) + _2bz * (q1q2 + q3q4) - my) + (_2bx * q1 - _4bz * q3) * (_2bx * (q1q3 + q2q4) + _2bz * (0.5f - q2q2 - q3q3) - mz);
 	s4 = _2q2 * (2.0f * q2q4 - _2q1q3 - ax) + _2q3 * (2.0f * q1q2 + _2q3q4 - ay) + (-_4bx * q4 + _2bz * q2) * (_2bx * (0.5f - q3q3 - q4q4) + _2bz * (q2q4 - q1q3) - mx) + (-_2bx * q1 + _2bz * q3) * (_2bx * (q2q3 - q1q4) + _2bz * (q1q2 + q3q4) - my) + _2bx * q2 * (_2bx * (q1q3 + q2q4) + _2bz * (0.5f - q2q2 - q3q3) - mz);
-	
-	cout << "S1 " << (float) s1 << endl;
-	cout << "S2 " << (float) s2 << endl;
-	cout << "S3 " << (float) s3 << endl;
-	cout << "S4 " << (float) s4 << endl;
+
 
 	norm = sqrt(s1 * s1 + s2 * s2 + s3 * s3 + s4 * s4);    // normalise step magnitude
 	norm = 1.0f / norm;
@@ -122,8 +113,7 @@ void qEstimator::MadgwickUpdate(float ax, float ay, float az, float gx, float gy
 	s3 *= norm;
 	s4 *= norm;
 
-	
-	cout << "Norm3 " << (float) norm << endl;
+
 
 	// Compute rate of change of quaternion
 	qDot1 = 0.5f * (-q2 * gx - q3 * gy - q4 * gz) - beta * s1;
@@ -142,7 +132,5 @@ void qEstimator::MadgwickUpdate(float ax, float ay, float az, float gx, float gy
 	q[1] = q2 * norm;
 	q[2] = q3 * norm;
 	q[3] = q4 * norm;
-
-	cout << "Norm4 " << (float) norm << endl;
 
 }
