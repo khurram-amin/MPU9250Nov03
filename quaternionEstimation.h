@@ -15,6 +15,7 @@ class qEstimator{
 		float q[4];           // vector to hold quaternion
 
 	public:
+		qEstimator();
 		void MadgwickUpdate(float ax, float ay, float az, float gx, float gy, float gz, float mx, float my, float mz);
 		void updateDeltaT(float _delta){
 			deltat = _delta;
