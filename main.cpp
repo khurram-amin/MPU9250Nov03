@@ -132,10 +132,10 @@ int main()
 			toQuaternion.getQuaternion(_quat);
 			toQuaternion.toEulerAngle(_degs);
 			// cout << "delata " << (float)(qTimeDouble/1000) << endl;
-			// cout << "Q1: " << 1.0f*_quat[0] << endl;
-			// cout << "Q2: " << 1.0f*_quat[1] << endl;
-			// cout << "Q3: " << 1.0f*_quat[2] << endl;
-			// cout << "Q4: " << 1.0f*_quat[3] << endl;
+			cout << "Q1: " << 1.0f*_quat[0] << endl;
+			cout << "Q2: " << 1.0f*_quat[1] << endl;
+			cout << "Q3: " << 1.0f*_quat[2] << endl;
+			cout << "Q4: " << 1.0f*_quat[3] << endl;
 			roll+=_degs[0];
 			pitch+=_degs[1];
 			yaw+=_degs[2];
