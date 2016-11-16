@@ -68,6 +68,8 @@ void qEstimator::MadgwickUpdate(float ax, float ay, float az, float gx, float gy
 	ay *= norm;
 	az *= norm;
 
+	cout << "Norm1 " << (float) norm << endl;
+
 	// Normalise magnetometer measurement
 	norm = sqrt(mx * mx + my * my + mz * mz);
 	if (norm == 0.0f) return; // handle NaN
@@ -76,7 +78,7 @@ void qEstimator::MadgwickUpdate(float ax, float ay, float az, float gx, float gy
 	my *= norm;
 	mz *= norm;
 
-	cout << "Norm " << (double) norm << endl;
+	cout << "Norm2 " << (float) norm << endl;
 
 	// Reference direction of Earth's magnetic field
 	_2q1mx = 2.0f * q1 * mx;
@@ -102,6 +104,8 @@ void qEstimator::MadgwickUpdate(float ax, float ay, float az, float gx, float gy
 	s3 *= norm;
 	s4 *= norm;
 
+	cout << "Norm3 " << (float) norm << endl;
+
 	// Compute rate of change of quaternion
 	qDot1 = 0.5f * (-q2 * gx - q3 * gy - q4 * gz) - beta * s1;
 	qDot2 = 0.5f * (q1 * gx + q3 * gz - q4 * gy) - beta * s2;
@@ -119,5 +123,7 @@ void qEstimator::MadgwickUpdate(float ax, float ay, float az, float gx, float gy
 	q[1] = q2 * norm;
 	q[2] = q3 * norm;
 	q[3] = q4 * norm;
+
+	cout << "Norm4 " << (float) norm << endl;
 
 }
