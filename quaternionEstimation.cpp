@@ -31,6 +31,28 @@ void qEstimator::setQuaternion(float* _q)
 	q[3] = _q[3];
 }
 
+void qEstimator::toEulerianAngle(double* eulers)
+{
+	for(uint8_t i=0; i < 3; i++){ eulers[i] = 0; }
+	double ysqr = q[2] * q[2];
+	double t0 = -2.0f * (ysqr + q[3] * q[3]) + 1.0f;
+	double t1 = +2.0f * (q[1] * q[2] - q[0] * q[3]);
+	double t2 = -2.0f * (q[1] * q[3] + q[0] * q[2]);
+	double t3 = +2.0f * (q[2] * q[3] - q[0] * q[1]);
+	double t4 = -2.0f * (q[1] * q[1] + ysqr) + 1.0f;
+
+	t2 = t2 > 1.0f ? 1.0f : t2;
+	t2 = t2 < -1.0f ? -1.0f : t2;
+
+	float pitch = std::asin(t2);
+	float roll = std::atan2(t3, t4);
+	float yaw = std::atan2(t1, t0);
+
+	eulers[0] = roll*(360/(2*PI));
+	eulers[1] = pitch*(360/(2*PI));
+	eulers[2] = yaw*(360/(2*PI));
+}
+
 // Implementation of Sebastian Madgwick's "...efficient orientation filter for... inertial/magnetic sensor arrays"
 // (see http://www.x-io.co.uk/category/open-source/ for examples and more details)
 // which fuses acceleration, rotation rate, and magnetic moments to produce a quaternion-based estimate of absolute

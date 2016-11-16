@@ -24,4 +24,6 @@ class qEstimator{
 		}
 		void getQuaternion(float* _q);
 		void setQuaternion(float* _q);
+
+		void toEulerianAngle(double* eulers);
 };

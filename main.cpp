@@ -21,6 +21,7 @@ int main()
 	float* magBias = new float[3];
 	float* magScale = new float[3];
 	float* _quat = new float[4];
+	float* _degs = new float[3];
 
 	wiringPiSetup () ;
 	pinMode (0, INPUT) ;
@@ -126,11 +127,16 @@ int main()
 
 			
 			toQuaternion.getQuaternion(_quat);
+			toQuaternion.toEulerianAngle(_degs);
 			cout << "delata " << (float)(qTimeDouble/1000) << endl;
 			cout << "Q1: " << 1.0f*_quat[0] << endl;
 			cout << "Q2: " << 1.0f*_quat[1] << endl;
 			cout << "Q3: " << 1.0f*_quat[2] << endl;
 			cout << "Q4: " << 1.0f*_quat[3] << endl;
+
+			cout << "Roll: " << 1.0f*_degs[0] << endl;
+			cout << "Pitch: " << 1.0f*_degs[1] << endl;
+			cout << "Yaw: " << 1.0f*_degs[2] << endl;
 
 			cout << "Current sample rate is " << (double) freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
