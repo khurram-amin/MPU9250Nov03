@@ -473,14 +473,16 @@ void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2)
 {
 	uint16_t ii = 0, sample_count = 0;
 	int32_t mag_bias[3] = {0, 0, 0}, mag_scale[3] = {0, 0, 0};
-	int16_t mag_max[3] = {-32767, -32767, -32767};
-	int16_t mag_min[3] = {32767, 32767, 32767};
+	int16_t mag_max[3] = new int16_t[3];
+	mag_max[0] = -32767; mag_max[1] = -32767; mag_max[2] = -32767;
+	int16_t mag_min[3]  = new int16_t[3];
+	mag_min[0] = 32768; mag_min[1] = 32768; mag_min[2] = 32768;
 	int16_t mag_temp[3] = {0, 0, 0};
 
 	std::cout << "Mag Calibration: Wave device in a figure eight until done!" << std::endl;
-	delay(4000);
+	delay(2000);
 
-	sample_count = 1000;
+	sample_count = 500;
 	for(ii = 0; ii < sample_count; ii++)
 	{
 		readMagnetoRawData(mag_temp);  // Read the mag data   
