@@ -22,6 +22,14 @@ void qEstimator::getQuaternion(float* _q)
 	_q[3] = q[3];
 }
 
+void qEstimator::setQuaternion(float* _q)
+{
+	q[0] = _q[0];
+	q[1] = _q[1];
+	q[2] = _q[2];
+	q[3] = _q[3];
+}
+
 // Implementation of Sebastian Madgwick's "...efficient orientation filter for... inertial/magnetic sensor arrays"
 // (see http://www.x-io.co.uk/category/open-source/ for examples and more details)
 // which fuses acceleration, rotation rate, and magnetic moments to produce a quaternion-based estimate of absolute

@@ -118,10 +118,13 @@ int main()
 
 			qTimeDouble = (double)( (double)1000*after.tv_sec+(double)after.tv_usec/1000 ) - (double)( (double)1000*qTime.tv_sec+(double)qTime.tv_usec/1000 );
 
+			for (int i=0; i<4; i++){ _quat[i] = 0; }
+			toQuaternion.setQuaternion(_quat);
+
 			toQuaternion.updateDeltaT((float)(qTimeDouble/1000));
 			toQuaternion.MadgwickUpdate(1.0f*dataA[0]*mpu9250.getAccelroResolution(), 1.0f*dataA[1]*mpu9250.getAccelroResolution(), 1.0f*dataA[2]*mpu9250.getAccelroResolution(), 1.0f*dataG[0]*mpu9250.getGyroResolution(), 1.0f*dataG[1]*mpu9250.getGyroResolution(), 1.0f*dataG[2]*mpu9250.getGyroResolution(), (1.0f*dataM[0]*mpu9250.getMagnetoResolution() - 1.0f*magBias[0])/(1.0f*magScale[0]), (1.0f*dataM[1]*mpu9250.getMagnetoResolution() - 1.0f*magBias[1])/(1.0f*magScale[1]), (1.0f*dataM[2]*mpu9250.getMagnetoResolution() - 1.0f*magBias[2])/(1.0f*magScale[2]));
 
-			for (int i=0; i<4; i++){ _quat[i] = 0; }
+			
 			toQuaternion.getQuaternion(_quat);
 			cout << "delata " << (float)(qTimeDouble/1000) << endl;
 			cout << "Q1: " << 1.0f*_quat[0] << endl;

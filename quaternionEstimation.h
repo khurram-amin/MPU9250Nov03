@@ -23,4 +23,5 @@ class qEstimator{
 			deltat = _delta;
 		}
 		void getQuaternion(float* _q);
+		void setQuaternion(float* _q);
 };
