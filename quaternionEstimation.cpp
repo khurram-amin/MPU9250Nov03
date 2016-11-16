@@ -44,6 +44,11 @@ void qEstimator::MadgwickUpdate(float ax, float ay, float az, float gx, float gy
 	float s1, s2, s3, s4;
 	float qDot1, qDot2, qDot3, qDot4;
 
+	cout << "q1 " << (float) q1 << endl;
+	cout << "q2 " << (float) q2 << endl;
+	cout << "q3 " << (float) q3 << endl;
+	cout << "q4 " << (float) q4 << endl;
+
 	// Auxiliary variables to avoid repeated arithmetic
 	float _2q1mx;
 	float _2q1my;
