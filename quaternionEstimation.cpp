@@ -1,6 +1,6 @@
 #include "quaternionEstimation.h"
 
-void qEstimator::qEstimator()
+qEstimator::qEstimator()
 {
 	PI = 3.14159265358979323846f;
 	GyroMeasError = PI * (60.0f / 180.0f);     // gyroscope measurement error in rads/s (start at 60 deg/s), then reduce after ~10 s to 3

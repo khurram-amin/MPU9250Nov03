@@ -69,7 +69,7 @@ int main()
 	double freq = 0;
 
 	qEstimator toQuaternion;
-	toQuaternion.updateDeltaT(0f);
+	toQuaternion.updateDeltaT((float)0);
 
 	beforeDouble = (double) (before.tv_sec+before.tv_usec/1000000);
 	qTimeDouble = (double) (1000000*qTime.tv_sec+qTime.tv_usec);

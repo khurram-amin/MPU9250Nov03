@@ -19,4 +19,5 @@ class qEstimator{
 		void updateDeltaT(float _delta){
 			deltat = _delta;
 		}
+		void getQuaternion(float* _q);
 };
