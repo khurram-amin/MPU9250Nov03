@@ -4,6 +4,9 @@
 #include <wiringPi.h>
 #include "MPU9250RegMap.h"
 #include <iostream>
+#include <cmath>
+
+using namespace std;
 
 #define uint8_t unsigned char
 #define int8_t char
