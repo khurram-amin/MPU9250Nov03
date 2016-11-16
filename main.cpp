@@ -62,7 +62,7 @@ int main()
 	mpu9250.initAK8963(dataMB);
 	delay(10);
 	
-	struct timeval before, after, qTime1;
+	struct timeval before, after, qTime;
 	gettimeofday(&before,NULL);
 	double beforeDouble, afterDouble, qTimeDouble;
 	double counter = 0;
