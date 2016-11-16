@@ -135,10 +135,13 @@ int main()
 			// cout << "Q2: " << 1.0f*_quat[1] << endl;
 			// cout << "Q3: " << 1.0f*_quat[2] << endl;
 			// cout << "Q4: " << 1.0f*_quat[3] << endl;
+			roll+=_degs[0];
+			pitch+=_degs[1];
+			yaw+=_degs[2];
 
-			cout << "Roll: " << (double)(roll+(double)_degs[0]) << endl;
-			cout << "Pitch: " << (double)(pitch+(double)_degs[1]) << endl;
-			cout << "Yaw: " << (double)(yaw+(double)_degs[2]) << endl;
+			cout << "Roll: " << (double)roll << endl;
+			cout << "Pitch: " << (double)pitch << endl;
+			cout << "Yaw: " << (double)yaw << endl;
 
 			cout << "Current sample rate is " << (double) freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
