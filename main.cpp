@@ -125,7 +125,7 @@ int main()
 			//toQuaternion.setQuaternion(_quat);
 
 			toQuaternion.updateDeltaT((float)(qTimeDouble/1000));
-			toQuaternion.MadgwickUpdate(1.0f*dataA[0]*mpu9250.getAccelroResolution(), 1.0f*dataA[1]*mpu9250.getAccelroResolution(), 1.0f*dataA[2]*mpu9250.getAccelroResolution(), 1.0f*dataG[0]*mpu9250.getGyroResolution(), 1.0f*dataG[1]*mpu9250.getGyroResolution(), 1.0f*dataG[2]*mpu9250.getGyroResolution(), (1.0f*dataM[0]*mpu9250.getMagnetoResolution()*magScale[0] - 1.0f*magBias[0]), (1.0f*dataM[1]*mpu9250.getMagnetoResolution()*magScale[1] - 1.0f*magBias[1])/, (1.0f*dataM[2]*mpu9250.getMagnetoResolution()*magScale[2] - 1.0f*magBias[2]) );
+			toQuaternion.MadgwickUpdate(1.0f*dataA[0]*mpu9250.getAccelroResolution(), 1.0f*dataA[1]*mpu9250.getAccelroResolution(), 1.0f*dataA[2]*mpu9250.getAccelroResolution(), 1.0f*dataG[0]*mpu9250.getGyroResolution(), 1.0f*dataG[1]*mpu9250.getGyroResolution(), 1.0f*dataG[2]*mpu9250.getGyroResolution(), (1.0f*dataM[0]*mpu9250.getMagnetoResolution()*magScale[0] - 1.0f*magBias[0]), (1.0f*dataM[1]*mpu9250.getMagnetoResolution()*magScale[1] - 1.0f*magBias[1]), (1.0f*dataM[2]*mpu9250.getMagnetoResolution()*magScale[2] - 1.0f*magBias[2]) );
 
 			
 			toQuaternion.getQuaternion(_quat);
