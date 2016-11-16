@@ -101,16 +101,16 @@ int main()
 
 
 			// //sprintf("Temp = %d\nAccelX = %d\nAccelY = %d\nAccelZ = %d\nGyroX = %d\nGyroY = %d\nGyroZ = %d\nMagntX = %d\nMagntY = %d\nMagntZ = %d\n\n\n", 1.0f*dataT, 1.0f*dataA[0]*mpu9250.getAccelroResolution, 1.0f*dataA[1]*mpu9250.getAccelroResolution, 1.0f*dataA[2]*mpu9250.getAccelroResolution, 1.0f*dataG[0]*mpu9250.getGyroResolution, 1.0f*dataG[1]*mpu9250.getGyroResolution, 1.0f*dataG[2]*mpu9250.getGyroResolution, 1.0f*dataM[0]*mpu9250.getMagnetoResolution, 1.0f*dataM[1]*mpu9250.getMagnetoResolution, 1.0f*dataM[2]*mpu9250.getMagnetoResolution);
-			cout<< "Temp = " << 1.0f*dataT/mpu9250.getTempResolution() + 21 << endl;
-			cout<< "AccelX = " << 1.0f*dataA[0]*mpu9250.getAccelroResolution() << endl;
-			cout<< "AccelY = " << 1.0f*dataA[1]*mpu9250.getAccelroResolution() << endl;
-			cout<< "AccelZ = " << 1.0f*dataA[2]*mpu9250.getAccelroResolution() << endl;
-			cout<< "GyroX = " << 1.0f*dataG[0]*mpu9250.getGyroResolution() << endl;
-			cout<< "GyroY = " << 1.0f*dataG[1]*mpu9250.getGyroResolution() << endl;
-			cout<< "GyroZ = " << 1.0f*dataG[2]*mpu9250.getGyroResolution() << endl;
-			cout<< "MagntX = " << (1.0f*dataM[0]*mpu9250.getMagnetoResolution() - 1.0f*magBias[0])/(1.0f*magScale[0]) << endl;
-			cout<< "MagntY = " << (1.0f*dataM[1]*mpu9250.getMagnetoResolution() - 1.0f*magBias[1])/(1.0f*magScale[1])  << endl;
-			cout<< "MagntZ = " << (1.0f*dataM[2]*mpu9250.getMagnetoResolution() - 1.0f*magBias[2])/(1.0f*magScale[2])  << endl;
+			// cout<< "Temp = " << 1.0f*dataT/mpu9250.getTempResolution() + 21 << endl;
+			// cout<< "AccelX = " << 1.0f*dataA[0]*mpu9250.getAccelroResolution() << endl;
+			// cout<< "AccelY = " << 1.0f*dataA[1]*mpu9250.getAccelroResolution() << endl;
+			// cout<< "AccelZ = " << 1.0f*dataA[2]*mpu9250.getAccelroResolution() << endl;
+			// cout<< "GyroX = " << 1.0f*dataG[0]*mpu9250.getGyroResolution() << endl;
+			// cout<< "GyroY = " << 1.0f*dataG[1]*mpu9250.getGyroResolution() << endl;
+			// cout<< "GyroZ = " << 1.0f*dataG[2]*mpu9250.getGyroResolution() << endl;
+			// cout<< "MagntX = " << (1.0f*dataM[0]*mpu9250.getMagnetoResolution() - 1.0f*magBias[0])/(1.0f*magScale[0]) << endl;
+			// cout<< "MagntY = " << (1.0f*dataM[1]*mpu9250.getMagnetoResolution() - 1.0f*magBias[1])/(1.0f*magScale[1])  << endl;
+			// cout<< "MagntZ = " << (1.0f*dataM[2]*mpu9250.getMagnetoResolution() - 1.0f*magBias[2])/(1.0f*magScale[2])  << endl;
 			
 
 
@@ -130,11 +130,11 @@ int main()
 			
 			toQuaternion.getQuaternion(_quat);
 			toQuaternion.toEulerianAngle(_degs);
-			cout << "delata " << (float)(qTimeDouble/1000) << endl;
-			cout << "Q1: " << 1.0f*_quat[0] << endl;
-			cout << "Q2: " << 1.0f*_quat[1] << endl;
-			cout << "Q3: " << 1.0f*_quat[2] << endl;
-			cout << "Q4: " << 1.0f*_quat[3] << endl;
+			// cout << "delata " << (float)(qTimeDouble/1000) << endl;
+			// cout << "Q1: " << 1.0f*_quat[0] << endl;
+			// cout << "Q2: " << 1.0f*_quat[1] << endl;
+			// cout << "Q3: " << 1.0f*_quat[2] << endl;
+			// cout << "Q4: " << 1.0f*_quat[3] << endl;
 
 			cout << "Roll: " << (double)(roll+(double)_degs[0]) << endl;
 			cout << "Pitch: " << (double)(pitch+(double)_degs[1]) << endl;
