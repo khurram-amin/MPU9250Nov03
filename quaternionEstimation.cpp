@@ -33,7 +33,7 @@ void qEstimator::setQuaternion(float* _q)
 
 void qEstimator::toEulerianAngle(double* eulers)
 {
-	for(uint8_t i=0; i < 3; i++){ eulers[i] = 0; }
+	for(int i=0; i < 3; i++){ eulers[i] = 0; }
 	double ysqr = q[2] * q[2];
 	double t0 = -2.0f * (ysqr + q[3] * q[3]) + 1.0f;
 	double t1 = +2.0f * (q[1] * q[2] - q[0] * q[3]);
