@@ -62,9 +62,9 @@ int main()
 	mpu9250.initAK8963(dataMB);
 	delay(10);
 	
-	struct timeval before, after;
+	struct timeval before, after, qTime1;
 	gettimeofday(&before,NULL);
-	double beforeDouble, afterDouble;
+	double beforeDouble, afterDouble, qTimeDouble;
 	double counter = 0;
 	double freq = 0;
 
@@ -72,7 +72,8 @@ int main()
 	toQuaternion.updateDeltaT(0f);
 
 	beforeDouble = (double) (before.tv_sec+before.tv_usec/1000000);
-	
+	qTimeDouble = (double) (1000000*qTime.tv_sec+qTime.tv_usec);
+
 	while(1)
 	{
 		if( digitalRead(0) )
@@ -112,7 +113,9 @@ int main()
 			afterDouble = (double) (after.tv_sec+after.tv_usec/1000000);
 			freq = (double) ( (double)counter/(double)(afterDouble-beforeDouble) );
 
-			toQuaternion.updateDeltaT((float)(afterDouble-beforeDouble));
+			qTimeDouble = (double)(1000000*after.tv_sec+after.tv_usec) - (double)(1000000*qTime.tv_sec+qTime.tv_usec);
+
+			toQuaternion.updateDeltaT((float)(qTimeDouble/1000000));
 			toQuaternion.MadgwickUpdate(1.0f*dataA[0]*mpu9250.getAccelroResolution(), 1.0f*dataA[1]*mpu9250.getAccelroResolution(), 1.0f*dataA[2]*mpu9250.getAccelroResolution(), 1.0f*dataG[0]*mpu9250.getGyroResolution(), 1.0f*dataG[1]*mpu9250.getGyroResolution(), 1.0f*dataG[2]*mpu9250.getGyroResolution(), (1.0f*dataM[0]*mpu9250.getMagnetoResolution() - 1.0f*magBias[0])/(1.0f*magScale[0]), (1.0f*dataM[1]*mpu9250.getMagnetoResolution() - 1.0f*magBias[1])/(1.0f*magScale[1]), (1.0f*dataM[2]*mpu9250.getMagnetoResolution() - 1.0f*magBias[2])/(1.0f*magScale[2]));
 
 			for (int i=0; i<4; i++){ _quat[i] = 0; }
@@ -124,6 +127,8 @@ int main()
 
 			cout << "Current sample rate is " << (double) freq << " Hz" <<endl;
 			cout<<endl<<endl<<endl;
+
+			gettimeofday(&qTime,NULL);
 		}
 		if (afterDouble-beforeDouble > 10)
 		{
