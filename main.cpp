@@ -120,6 +120,7 @@ int main()
 
 			for (int i=0; i<4; i++){ _quat[i] = 0; }
 			toQuaternion.getQuaternion(_quat);
+			cout << "delata " << (float)(qTimeDouble/1000000) << endl;
 			cout << "Q1: " << 1.0f*_quat[0] << endl;
 			cout << "Q2: " << 1.0f*_quat[1] << endl;
 			cout << "Q3: " << 1.0f*_quat[2] << endl;
