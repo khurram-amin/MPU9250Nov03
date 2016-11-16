@@ -80,6 +80,7 @@ int main()
 
 	double roll = 0, pitch = 0, yaw = 0;
 
+	float PI = 3.141592653589793;
 	while(1)
 	{
 		if( digitalRead(0) )
