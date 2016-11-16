@@ -118,7 +118,7 @@ int main()
 
 			qTimeDouble = (double)( (double)1000*after.tv_sec+(double)after.tv_usec/1000 ) - (double)( (double)1000*qTime.tv_sec+(double)qTime.tv_usec/1000 );
 
-			for (int i=0; i<4; i++){ _quat[i] = 0; }
+			for (int i=0; i<4; i++){ _quat[i] = 0; } _quat[0] = 1;
 			toQuaternion.setQuaternion(_quat);
 
 			toQuaternion.updateDeltaT((float)(qTimeDouble/1000));

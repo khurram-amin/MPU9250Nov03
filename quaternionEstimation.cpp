@@ -11,6 +11,7 @@ qEstimator::qEstimator()
 	deltat = 0.0f;
 
 	for (int i=0; i<4; i++){ q[i] = 0.0f; }
+		q[0] = 1;
 }
 
 
@@ -113,7 +114,7 @@ void qEstimator::MadgwickUpdate(float ax, float ay, float az, float gx, float gy
 	cout << "S2 " << (float) s2 << endl;
 	cout << "S3 " << (float) s3 << endl;
 	cout << "S4 " << (float) s4 << endl;
-	
+
 	norm = sqrt(s1 * s1 + s2 * s2 + s3 * s3 + s4 * s4);    // normalise step magnitude
 	norm = 1.0f / norm;
 	s1 *= norm;
