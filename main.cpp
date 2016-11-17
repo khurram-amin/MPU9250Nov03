@@ -42,80 +42,81 @@ int main()
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	uint16_t ii = 0, sample_count = 0;
-	int32_t mag_bias[3] = {0, 0, 0}, mag_scale[3] = {0, 0, 0};
+	// uint16_t ii = 0, sample_count = 0;
+	// int32_t mag_bias[3] = {0, 0, 0}, mag_scale[3] = {0, 0, 0};
 
-	int mag_max[3];
-	mag_max[0] = (int)-32767; mag_max[1] = (int)-32767; mag_max[2] = (int)-32767;
-	int mag_min[3];
-	mag_min[0] = (int)32768; mag_min[1] = (int)32768; mag_min[2] = (int)32768;
+	// int mag_max[3];
+	// mag_max[0] = (int)-32767; mag_max[1] = (int)-32767; mag_max[2] = (int)-32767;
+	// int mag_min[3];
+	// mag_min[0] = (int)32768; mag_min[1] = (int)32768; mag_min[2] = (int)32768;
 	
-	short* mag_temp = new short[3];
-	mag_temp[0] = 1; mag_temp[1] = 1; mag_temp[2] = 1;
+	// short* mag_temp = new short[3];
+	// mag_temp[0] = 1; mag_temp[1] = 1; mag_temp[2] = 1;
 
-	std::cout << "Mag Calibration: Wave device in a figure eight until done!" << std::endl;
-	delay(2000);
+	// std::cout << "Mag Calibration: Wave device in a figure eight until done!" << std::endl;
+	// delay(2000);
 
-	sample_count = 500;
-	for(ii = 0; ii < sample_count; ii++)
-	{
-		mpu9250.readMagnetoRawData(mag_temp);  // Read the mag data
-		cout << "mag readings in short" << endl;
-		cout << 1.0f*mag_temp[0] << endl;
-		cout << 1.0f*mag_temp[1] << endl;
-		cout << 1.0f*mag_temp[2] << endl;   
-		for (int jj = 0; jj < 3; jj++)
-		{
-			if(mag_temp[jj] > (int)mag_max[jj]) mag_max[jj] = (int)mag_temp[jj];
-			if(mag_temp[jj] < (int)mag_min[jj]) mag_min[jj] = (int)mag_temp[jj];
-			if(isnan(mag_temp[jj])){
-				cout << "NAN" <<endl;
-			}
-		}
-		mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
-		delay(20);
-	}
+	// sample_count = 500;
+	// for(ii = 0; ii < sample_count; ii++)
+	// {
+	// 	while()
+	// 	mpu9250.readMagnetoRawData(mag_temp);  // Read the mag data
+	// 	cout << "mag readings in short" << endl;
+	// 	cout << 1.0f*mag_temp[0] << endl;
+	// 	cout << 1.0f*mag_temp[1] << endl;
+	// 	cout << 1.0f*mag_temp[2] << endl;   
+	// 	for (int jj = 0; jj < 3; jj++)
+	// 	{
+	// 		if(mag_temp[jj] > (int)mag_max[jj]) mag_max[jj] = (int)mag_temp[jj];
+	// 		if(mag_temp[jj] < (int)mag_min[jj]) mag_min[jj] = (int)mag_temp[jj];
+	// 		if(isnan(mag_temp[jj])){
+	// 			cout << "NAN" <<endl;
+	// 		}
+	// 	}
+	// }
 
-	// Get hard iron correction
-	mag_bias[0]  = (mag_max[0] + mag_min[0])/2;  // get average x mag bias in counts
-	mag_bias[1]  = (mag_max[1] + mag_min[1])/2;  // get average y mag bias in counts
-	mag_bias[2]  = (mag_max[2] + mag_min[2])/2;  // get average z mag bias in counts
+	// // Get hard iron correction
+	// mag_bias[0]  = (mag_max[0] + mag_min[0])/2;  // get average x mag bias in counts
+	// mag_bias[1]  = (mag_max[1] + mag_min[1])/2;  // get average y mag bias in counts
+	// mag_bias[2]  = (mag_max[2] + mag_min[2])/2;  // get average z mag bias in counts
 
-	//float * magBias = new float[3];
-	//float * dest2 = new float[3];
+	// //float * magBias = new float[3];
+	// //float * dest2 = new float[3];
 
-	magBias[0] = (float) mag_bias[0]*mpu9250.magnetoResolution*mpu9250.magCalibration[0];  // save mag biases in G for main program
-	magBias[1] = (float) mag_bias[1]*mpu9250.magnetoResolution*mpu9250.magCalibration[1];   
-	magBias[2] = (float) mag_bias[2]*mpu9250.magnetoResolution*mpu9250.magCalibration[2];  
+	// magBias[0] = (float) mag_bias[0]*mpu9250.magnetoResolution*mpu9250.magCalibration[0];  // save mag biases in G for main program
+	// magBias[1] = (float) mag_bias[1]*mpu9250.magnetoResolution*mpu9250.magCalibration[1];   
+	// magBias[2] = (float) mag_bias[2]*mpu9250.magnetoResolution*mpu9250.magCalibration[2];  
 
-	// Get soft iron correction estimate
-	mag_scale[0]  = (mag_max[0] - mag_min[0])/2;  // get average x axis max chord length in counts
-	mag_scale[1]  = (mag_max[1] - mag_min[1])/2;  // get average y axis max chord length in counts
-	mag_scale[2]  = (mag_max[2] - mag_min[2])/2;  // get average z axis max chord length in counts
+	// // Get soft iron correction estimate
+	// mag_scale[0]  = (mag_max[0] - mag_min[0])/2;  // get average x axis max chord length in counts
+	// mag_scale[1]  = (mag_max[1] - mag_min[1])/2;  // get average y axis max chord length in counts
+	// mag_scale[2]  = (mag_max[2] - mag_min[2])/2;  // get average z axis max chord length in counts
 
-	float avg_rad = mag_scale[0] + mag_scale[1] + mag_scale[2];
-	avg_rad /= 3.0;
+	// float avg_rad = mag_scale[0] + mag_scale[1] + mag_scale[2];
+	// avg_rad /= 3.0;
 
-	magScale[0] = avg_rad/((float)mag_scale[0]);
-	magScale[1] = avg_rad/((float)mag_scale[1]);
-	magScale[2] = avg_rad/((float)mag_scale[2]);
+	// magScale[0] = avg_rad/((float)mag_scale[0]);
+	// magScale[1] = avg_rad/((float)mag_scale[1]);
+	// magScale[2] = avg_rad/((float)mag_scale[2]);
 
-	cout << (int) mag_max[0] << endl;
-	cout << (int) mag_min[0] << endl;
+	// cout << (int) mag_max[0] << endl;
+	// cout << (int) mag_min[0] << endl;
 
-	if (isnan(mag_bias[0])) { cout << "MAG_BIAS[0] is NAN" << endl; }
-	if (isnan(mag_bias[1])) { cout << "MAG_BIAS[1] is NAN" << endl; }
-	if (isnan(mag_bias[2])) { cout << "MAG_BIAS[2] is NAN" << endl; }
-	if (isnan(mag_scale[0])) { cout << "MAG_SCALE[0] is NAN" << endl; }
-	if (isnan(mag_scale[1])) { cout << "MAG_SCALE[1] is NAN" << endl; }
-	if (isnan(mag_scale[2])) { cout << "MAG_SCALE[2] is NAN" << endl; }
+	// if (isnan(mag_bias[0])) { cout << "MAG_BIAS[0] is NAN" << endl; }
+	// if (isnan(mag_bias[1])) { cout << "MAG_BIAS[1] is NAN" << endl; }
+	// if (isnan(mag_bias[2])) { cout << "MAG_BIAS[2] is NAN" << endl; }
+	// if (isnan(mag_scale[0])) { cout << "MAG_SCALE[0] is NAN" << endl; }
+	// if (isnan(mag_scale[1])) { cout << "MAG_SCALE[1] is NAN" << endl; }
+	// if (isnan(mag_scale[2])) { cout << "MAG_SCALE[2] is NAN" << endl; }
 
-	std::cout << "Mag Calibration done!" << std::endl;
+	// std::cout << "Mag Calibration done!" << std::endl;
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//magBias[0] = 0; magBias[1] = 0; magBias[2] = 0;
 	//magScale[0] = 1; magScale[1] = 1; magScale[2] = 1;
+	magBias[0] = -406.09; magBias[1] = 3.46; mag_bias[2] = -121.55;
+	magScale[0] = 0.96; magScale[1] = 1.01; magScale[2] = 1.03;
 
 	cout<< "Self Calibration results " << endl;
 	cout << "AccelX = " << 1.0f*accelBias[0] << endl;
