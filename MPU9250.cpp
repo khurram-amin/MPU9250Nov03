@@ -487,7 +487,7 @@ void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2)
 	sample_count = 500;
 	for(ii = 0; ii < sample_count; ii++)
 	{
-		readMagnetoRawData(mag_temp);  // Read the mag data
+		readMagnetoRawData(&mag_temp);  // Read the mag data
 		cout << "mag readings in short" << endl;
 		cout << (short) mag_temp[0] << endl;
 		cout << (short) mag_temp[1] << endl;
