@@ -34,6 +34,8 @@ int main()
 	delay(10);
 	mpu9250.setMagClibration(dataMB);
 
+	cout << "WHO AM I AK8963 IN MAIN LOOP " << endl;
+	mpu9250.whoAmIAK8963();
 	mpu9250.calibrateMPU9250(gyroBias, accelBias);
 	mpu9250.calibrateAK8963Mag(magBias, magScale);
 	//magBias[0] = 0; magBias[1] = 0; magBias[2] = 0;
