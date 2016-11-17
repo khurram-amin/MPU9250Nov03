@@ -478,6 +478,24 @@ void MPU9250::calibrateMPU9250(float * gyroBias, float * accelBias)
 // Calibrate AK8963 Magnetometer (https://github.com/kriswiner/MPU-6050/wiki/Simple-and-Effective-Magnetometer-Calibration)
 void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2) 
 {
+	// First extract the factory calibration for each magnetometer axis
+	uint8_t rawData[3];  // x/y/z gyro calibration data stored here
+	writeByte(AK8963_ADDRESS, AK8963_CNTL, 0x00); // Power down magnetometer  
+	delay(1);
+	writeByte(AK8963_ADDRESS, AK8963_CNTL, 0x0F); // Enter Fuse ROM access mode
+	delay(1);
+	readBytes(AK8963_ADDRESS, AK8963_ASAX, 3, &rawData[0]);  // Read the x-, y-, and z-axis calibration values
+	destination[0] = (float)(rawData[0] - 128) / 256.0f + 1.0f;   // Return x-axis sensitivity adjustment values, etc.
+	destination[1] = (float)(rawData[1] - 128) / 256.0f + 1.0f;
+	destination[2] = (float)(rawData[2] - 128) / 256.0f + 1.0f;
+	writeByte(AK8963_ADDRESS, AK8963_CNTL, 0x00); // Power down magnetometer  
+	delay(1);
+	// Configure the magnetometer for continuous read and highest resolution
+	// set Mscale bit 4 to 1 (0) to enable 16 (14) bit resolution in CNTL register,
+	// and enable continuous mode data acquisition Mmode (bits [3:0]), 0010 for 8 Hz and 0110 for 100 Hz sample rates
+	writeByte(AK8963_ADDRESS, AK8963_CNTL, magnetoSensitivity << 4 | magnetoMode); // Set magnetometer data resolution and sample ODR
+	delay(1);
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	whoAmIAK8963();
 	uint16_t ii = 0, sample_count = 0;
 	int32_t mag_bias[3] = {0, 0, 0}, mag_scale[3] = {0, 0, 0};
