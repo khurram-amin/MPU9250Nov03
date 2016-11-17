@@ -34,6 +34,7 @@ class MPU9250{
 
 	public:
 		MPU9250();
+		void whoAmIAK8963();
 
 		// These functions will set the resolution per sensor tick variables. These variables will be used to convert the raw sensor value into physical units by incorporating the sensitivity mode of the sensor.
 		// Magnetometer resolution. Will set magnetoResolution varaible. (milli Gauss)

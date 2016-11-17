@@ -16,6 +16,13 @@ MPU9250::MPU9250()
 	
 }
 
+// Check if Magneto is replying
+void MPU9250::whoAmIAK8963()
+{
+	char c = readByte(AK8963_ADDRESS, WHO_AM_I_AK8963);
+	cout << "Who Am I reply by AK8963 is: " << c <<endl;
+}
+
 // Based on the current sensitivity configuration of magnetometer, this function will set the resolution per bit of magnetometer.
 void MPU9250::setMagnetoResolution()
 {
@@ -471,6 +478,7 @@ void MPU9250::calibrateMPU9250(float * gyroBias, float * accelBias)
 // Calibrate AK8963 Magnetometer (https://github.com/kriswiner/MPU-6050/wiki/Simple-and-Effective-Magnetometer-Calibration)
 void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2) 
 {
+	whoAmIAK8963();
 	uint16_t ii = 0, sample_count = 0;
 	int32_t mag_bias[3] = {0, 0, 0}, mag_scale[3] = {0, 0, 0};
 
