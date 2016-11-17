@@ -479,10 +479,6 @@ void MPU9250::calibrateMPU9250(float * gyroBias, float * accelBias)
 void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2) 
 {
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	float* dataMB = new float[3];
-	initAK8963(dataMB);
-			
-	whoAmIAK8963();
 	uint16_t ii = 0, sample_count = 0;
 	int32_t mag_bias[3] = {0, 0, 0}, mag_scale[3] = {0, 0, 0};
 
@@ -548,6 +544,9 @@ void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2)
 	if (isnan(mag_scale[2])) { cout << "MAG_SCALE[2] is NAN" << endl; }
 
 	std::cout << "Mag Calibration done!" << std::endl;
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
  }
 
 

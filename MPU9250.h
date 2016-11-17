@@ -24,15 +24,19 @@ class MPU9250{
 	    enum magnetoSensitivity { MFS_14BITS = 0, MFS_16BITS };
 
 	    uint8_t acceleroSensitivity, gyroSensitivity, magnetoSensitivity;
-		float magnetoResolution, accelroResolution, gyroResolution, tempResolution;
-		uint8_t magnetoMode;
-		float magCalibration[3];
+		
 
 		// Variables to store file handlers of open I2C device 
 		int fdMPU9250, fdAK8963;
 
 
 	public:
+
+		float magnetoResolution, accelroResolution, gyroResolution, tempResolution;
+		uint8_t magnetoMode;
+		float magCalibration[3];
+
+		
 		MPU9250();
 		void whoAmIAK8963();
 
