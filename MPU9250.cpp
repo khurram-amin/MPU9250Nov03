@@ -20,7 +20,7 @@ MPU9250::MPU9250()
 void MPU9250::whoAmIAK8963()
 {
 	char c = readByte(AK8963_ADDRESS, WHO_AM_I_AK8963);
-	cout << "Who Am I reply by AK8963 is: " << c <<endl;
+	cout << "Who Am I reply by AK8963 is: " << (int) c <<endl;
 }
 
 // Based on the current sensitivity configuration of magnetometer, this function will set the resolution per bit of magnetometer.
