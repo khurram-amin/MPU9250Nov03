@@ -36,8 +36,8 @@ int main()
 
 	cout << "WHO AM I AK8963 IN MAIN LOOP " << endl;
 	mpu9250.whoAmIAK8963();
-	mpu9250.calibrateMPU9250(gyroBias, accelBias);
-	mpu9250.initAK8963(dataMB);
+	// mpu9250.calibrateMPU9250(gyroBias, accelBias);
+	// mpu9250.initAK8963(dataMB);
 	//mpu9250.calibrateAK8963Mag(magBias, magScale);
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -113,10 +113,10 @@ int main()
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//magBias[0] = 0; magBias[1] = 0; magBias[2] = 0;
-	//magScale[0] = 1; magScale[1] = 1; magScale[2] = 1;
-	magBias[0] = -406.09; magBias[1] = 3.46; magBias[2] = -121.55;
-	magScale[0] = 0.96; magScale[1] = 1.01; magScale[2] = 1.03;
+	magBias[0] = 0; magBias[1] = 0; magBias[2] = 0;
+	magScale[0] = 1; magScale[1] = 1; magScale[2] = 1;
+	// magBias[0] = -406.09; magBias[1] = 3.46; magBias[2] = -121.55;
+	// magScale[0] = 0.96; magScale[1] = 1.01; magScale[2] = 1.03;
 
 	cout<< "Self Calibration results " << endl;
 	cout << "AccelX = " << 1.0f*accelBias[0] << endl;
