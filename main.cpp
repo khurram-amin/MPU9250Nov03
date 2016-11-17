@@ -115,7 +115,7 @@ int main()
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//magBias[0] = 0; magBias[1] = 0; magBias[2] = 0;
 	//magScale[0] = 1; magScale[1] = 1; magScale[2] = 1;
-	magBias[0] = -406.09; magBias[1] = 3.46; mag_bias[2] = -121.55;
+	magBias[0] = -406.09; magBias[1] = 3.46; magBias[2] = -121.55;
 	magScale[0] = 0.96; magScale[1] = 1.01; magScale[2] = 1.03;
 
 	cout<< "Self Calibration results " << endl;
