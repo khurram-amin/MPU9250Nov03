@@ -71,6 +71,7 @@ int main()
 				cout << "NAN" <<endl;
 			}
 		}
+		mpu9250.readByte(MPU9250_ADDRESS, INT_STATUS);
 		delay(20);
 	}
 
