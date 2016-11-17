@@ -50,7 +50,7 @@ int main()
 	mag_min[0] = (int)32768; mag_min[1] = (int)32768; mag_min[2] = (int)32768;
 	
 	int16_t* mag_temp = new int16_t[3];
-	mag_temp[0] = 0; mag_temp[1] = 0; mag_temp[2] = 0;
+	mag_temp[0] = 1; mag_temp[1] = 1; mag_temp[2] = 1;
 
 	std::cout << "Mag Calibration: Wave device in a figure eight until done!" << std::endl;
 	delay(2000);
