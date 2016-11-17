@@ -485,9 +485,6 @@ void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2)
 	writeByte(AK8963_ADDRESS, AK8963_CNTL, 0x0F); // Enter Fuse ROM access mode
 	delay(1);
 	readBytes(AK8963_ADDRESS, AK8963_ASAX, 3, &rawData[0]);  // Read the x-, y-, and z-axis calibration values
-	destination[0] = (float)(rawData[0] - 128) / 256.0f + 1.0f;   // Return x-axis sensitivity adjustment values, etc.
-	destination[1] = (float)(rawData[1] - 128) / 256.0f + 1.0f;
-	destination[2] = (float)(rawData[2] - 128) / 256.0f + 1.0f;
 	writeByte(AK8963_ADDRESS, AK8963_CNTL, 0x00); // Power down magnetometer  
 	delay(1);
 	// Configure the magnetometer for continuous read and highest resolution
