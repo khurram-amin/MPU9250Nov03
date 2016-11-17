@@ -479,10 +479,10 @@ void MPU9250::calibrateMPU9250(float * gyroBias, float * accelBias)
 void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2) 
 {
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	cout << "FD FOR MAG IS: " << 1.0f*fdAK8963 << endl;
-	readByte(MPU9250_ADDRESS, INT_STATUS);
+	float* dataMB = new float[3];
+	initAK8963(dataMB);
 			
-	this->whoAmIAK8963();
+	whoAmIAK8963();
 	uint16_t ii = 0, sample_count = 0;
 	int32_t mag_bias[3] = {0, 0, 0}, mag_scale[3] = {0, 0, 0};
 
