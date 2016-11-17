@@ -475,9 +475,9 @@ void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2)
 	int32_t mag_bias[3] = {0, 0, 0}, mag_scale[3] = {0, 0, 0};
 
 	int mag_max[3];
-	mag_max[0] = -32767; mag_max[1] = -32767; mag_max[2] = -32767;
+	mag_max[0] = (int)-32767; mag_max[1] = (int)-32767; mag_max[2] = (int)-32767;
 	int mag_min[3];
-	mag_min[0] = 32768; mag_min[1] = 32768; mag_min[2] = 32768;
+	mag_min[0] = (int)32768; mag_min[1] = (int)32768; mag_min[2] = (int)32768;
 	
 	int16_t mag_temp[3] = {0, 0, 0};
 
@@ -487,7 +487,11 @@ void MPU9250::calibrateAK8963Mag(float * dest1, float * dest2)
 	sample_count = 500;
 	for(ii = 0; ii < sample_count; ii++)
 	{
-		readMagnetoRawData(mag_temp);  // Read the mag data   
+		readMagnetoRawData(mag_temp);  // Read the mag data
+		cout << "mag readings in short" << endl;
+		cout << (short) mag_temp[0] << endl;
+		cout << (short) mag_temp[1] << endl;
+		cout << (short) mag_temp[2] << endl;   
 		for (int jj = 0; jj < 3; jj++)
 		{
 			if(mag_temp[jj] > (int)mag_max[jj]) mag_max[jj] = (int)mag_temp[jj];
