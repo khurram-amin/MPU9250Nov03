@@ -80,8 +80,8 @@ int main()
 	mag_bias[1]  = (mag_max[1] + mag_min[1])/2;  // get average y mag bias in counts
 	mag_bias[2]  = (mag_max[2] + mag_min[2])/2;  // get average z mag bias in counts
 
-	float * magBias = new float[3];
-	float * dest2 = new float[3];
+	//float * magBias = new float[3];
+	//float * dest2 = new float[3];
 
 	magBias[0] = (float) mag_bias[0]*mpu9250.magnetoResolution*mpu9250.magCalibration[0];  // save mag biases in G for main program
 	magBias[1] = (float) mag_bias[1]*mpu9250.magnetoResolution*mpu9250.magCalibration[1];   
